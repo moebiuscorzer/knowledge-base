@@ -17,6 +17,18 @@ When using a Java project that is nested (e.g., within a mono-repo), you need to
 
 **Remark**: unmarking the Java project as source and re-marking it as such may solve build issues (unability to resolve some symbols). Similarly, `mvn compile` (if using maven) from the command line can also help in that respect. 
 
+#### Automatic re-building
+
+Go to `File > Settings > Compiler` and tick the box `Build project automatically`. Also, add the following dependency in your `pom.xml` file:
+```xml
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+```
+Finally, under `File > Settings > Advanced settings`, tick the box `Allow auto-make to start even if developed application is currently running`. 
+
 #### Maven
 Similarly, if using maven, you need to right-click on the `pom.xml` to set it as a maven project. To build in IntelliJ using maven, one needs to delegate build tasks to maven (`File > Settings > Build, Execution, Deployment > Build Tools > Maven > Runner` and tick `Delegate IDE build/run actions to Maven`).
 
